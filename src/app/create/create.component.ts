@@ -49,7 +49,7 @@ export class CreateComponent implements OnInit, OnDestroy {
     ),
   });
   public pages: number[] = [];
-  private deckIdToEdit?: number;
+  public deckIdToEdit?: number;
   private _subscriptions$ = new Subscription();
 
   constructor(
