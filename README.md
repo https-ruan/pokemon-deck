@@ -60,10 +60,10 @@ Todos os baralhos criados estão sendo salvos no local storage da máquina.
 > Tela de entrada do projeto contendo a logo personalizada e 2 botões de redirecionamento sendo eles: **_Meus baralhos_** e **_Criar baralho_**. O botão que vai para a tela de listagem dos baralhos criado fica desabilitado enquanto você não possuir uma coleção.
 
 **Quando usuário não possui baralhos criados:**
-![alt text](image-1.png)
+![alt text](readme-assets/inicio-sem-baralho.png)
 
 **Quando o usuário possui baralhos criados:**
-![alt text](image.png)
+![alt text](readme-assets/inicio-com-baralho.png)
 
 ### Página de Criação de Baralho (`create.component.ts` | `http://localhost:4200/create`):
 
@@ -74,32 +74,32 @@ Todos os baralhos criados estão sendo salvos no local storage da máquina.
 > - Select **_Página de cartas_**: Seleciona a página de cartas que você gostaria de visualizar (consulta a API do PokemonTCG quando página não foi visitada ainda, se a página selecionada já foi escolhida anteriormente apenas carrega as cartas da respectiva página, para otimização de performance);
 > - **_Lista de cartas_**: Espaço reservado para o usuário clicar nas cartas que deseja incluir em seu baralho,
 
-![alt text](image-3.png)
+![alt text](readme-assets/criacao-de-baralho.png)
 
 ### Página de Edição de Baralho (`create.component.ts` | `http://localhost:4200/update/:ID`):
 
 > Mesmo componente utilizado na tela de listagem, porém adaptado para receber um ID de um baralho criado para que seja realizada alterações se necessário. Trás os dados atuais do baralho (Nome preenchido e Cartas selecionadas) e permite o usuário atualiza-lo.
 
-![alt text](image-8.png)
+![alt text](readme-assets/edicao-de-baralho-2.png)
 
 ### Página de Listagem de Baralhos Criados (`list.component.ts` | `http://localhost:4200/list`):
 
 > Tela de listagem contendo os baralhos criados anteriormente, podemos clicar em cada baralho para visualizar seus detalhes, editar ou apaga-lo.
 
 **Baralhos criados**
-![alt text](image-4.png)
+![alt text](readme-assets/lista-de-baralhos.png)
 
 **Detalhes do baralho**
-![alt text](image-5.png)
+![alt text](readme-assets/detalhes-do-baralho.png)
 
 **Exclusão de baralho**
-![alt text](image-6.png)
+![alt text](readme-assets/exclusao-de-baralho.png)
 
 **Edição de baralho**
 
 > Quando clicar será redirecionado para a [Página de Edição de Baralho](#página-de-edição-de-baralho-createcomponentts--httplocalhost4200updateid)
 
-![alt text](image-7.png)
+![alt text](readme-assets/edicao-de-baralho.png)
 
 ### Componentes compartilhados
 
@@ -107,16 +107,16 @@ Todos os baralhos criados estão sendo salvos no local storage da máquina.
 
 > Texto exibido é dinâmico e pode ser alterado.
 
-![alt text](image-9.png)
+![alt text](readme-assets/loader.png)
 
 **Go to home**
 
 > Botão disponível em todas as telas que não forem a inicial, pois ao clicar redireciona para a raiz.
 
-![alt text](image-10.png)
+![alt text](readme-assets/go-to-home.png)
 
 **Toast**
 
 > Mensagem exibida é dinâmica e pode ser alterada.
 
-![alt text](image-11.png)
+![alt text](readme-assets/toast.png)
