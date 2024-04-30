@@ -1,0 +1,147 @@
+<app-title
+  title="Seus baralhos"
+  description="Aqui é armazenado a sua coleção lendária! Veja-os com mais detalhes ou apague se necessário"
+/>
+
+<button
+  class="p-4 mx-auto mb-4 max-w-sm sm:max-w-xl rounded-full border-2 !border-yellow-400 border-dashed !text-yellow-400 w-full"
+  igxButton="outlined"
+  igxRipple
+  routerLink="/create"
+>
+  <igx-icon>add</igx-icon>
+  Criar novo baralho
+</button>
+
+<div
+  class="py-4 flex gap-6 flex-wrap justify-center h-full max-h-[684px] lg:max-h-screen overflow-y-auto"
+>
+  <button
+    *ngFor="let deck of decksService.decks; index as idx"
+    class="relative flex flex-col items-center w-fit h-fit transition-transform hover:scale-105"
+    [igxTooltipTarget]="tooltipDeckRef"
+    [showDelay]="100"
+    [hideDelay]="100"
+    (click)="deckDetails.open()"
+  >
+    <img
+      class="max-w-40 rounded-lg shadow-lg shadow-white"
+      src="assets/pokemon-card.png"
+      alt="Pokemon card"
+    />
+    <div class="max-w-40 rounded-lg absolute top-0 left-0 rotate-6">
+      <img src="assets/pokemon-card.png" alt="Pokemon card" />
+      <strong
+        class="absolute top-2/4 -translate-y-2/4 left-0 w-full p-2 bg-blue-950 bg-opacity-80 text-yellow-400 text-lg text-center rounded border-t-4 border-b-4 border-yellow-400"
+        >{{ deck.name }}</strong
+      >
+    </div>
+
+    <igx-dialog
+      #deckDetails
+      [closeOnOutsideSelect]="true"
+      [closeOnEscape]="true"
+      class="absolute"
+    >
+      <div class="mb-4 flex flex-wrap gap-2">
+        <h2 class="flex-grow text-lg p-3 border-2 border-yellow-400 rounded">
+          Detalhes do baralho:
+          <span class="font-semibold text-yellow-400">{{ deck.name }}</span>
+        </h2>
+
+        <div class="flex gap-2 w-full md:w-fit">
+          <button
+            class="flex-grow md:flex-grow-0 !border-yellow-400 !text-yellow-400"
+            igxButton="outlined"
+            igxRipple
+            [igxTooltipTarget]="tooltipEditRef"
+            [showDelay]="100"
+            [hideDelay]="100"
+            (click)="editDeck(idx)"
+          >
+            <igx-icon>edit</igx-icon>
+          </button>
+          <button
+            class="flex-grow md:flex-grow-0 !border-red-400 !text-red-400"
+            igxButton="outlined"
+            igxRipple
+            [igxTooltipTarget]="tooltipDeleteRef"
+            [showDelay]="100"
+            [hideDelay]="100"
+            (click)="deleteDialog.open()"
+          >
+            <igx-icon>delete</igx-icon>
+          </button>
+        </div>
+      </div>
+
+      <div class="mb-4 flex flex-wrap gap-2">
+        <span class="flex align-center gap-1 flex-grow">
+          <igx-icon>view_carousel</igx-icon>
+          Pokémons:
+          <b class="text-yellow-400">{{ deck.cardTypes?.pokemons }}</b>
+        </span>
+
+        <span class="flex align-center gap-1 flex-grow">
+          <igx-icon>badge</igx-icon>
+          Treinadores:
+          <b class="text-yellow-400">{{ deck.cardTypes?.trainers }}</b>
+        </span>
+
+        <span class="flex align-center gap-1 flex-grow">
+          <igx-icon>palette</igx-icon>
+          Cartas de tipos únicos:
+          <b class="text-yellow-400">{{ deck.cardTypes?.uniqueColors }}</b>
+        </span>
+
+        <span class="flex align-center gap-1 flex-grow w-fit">
+          <igx-icon>palette</igx-icon>
+          Cartas de múltiplos tipos:
+          <b class="text-yellow-400">{{ deck.cardTypes?.manyColors }}</b>
+        </span>
+      </div>
+
+      <div
+        class="flex flex-wrap justify-center gap-4 pr-2 overflow-y-auto max-h-[505px] max-w-[760px]"
+      >
+        <img
+          *ngFor="let card of deck.cards"
+          [src]="card.image"
+          [alt]="card.name"
+          class="w-full sm:max-w-44"
+        />
+      </div>
+    </igx-dialog>
+
+    <!-- Dialog de deleção de baralho -->
+    <igx-dialog
+      #deleteDialog
+      title="Confirmar exclusão de baralho"
+      message="Você tem certeza que deseja excluir o baralho?"
+    >
+      <div igxDialogActions>
+        <button
+          class="!text-yellow-400"
+          igxButton
+          (click)="deleteDialog.close()"
+        >
+          Cancelar
+        </button>
+        <button
+          class="!text-red-400 border-2 !border-red-400"
+          igxButton
+          (click)="[removeDeck(idx), deleteDialog.close(), deckDetails.close()]"
+        >
+          EXCLUIR
+        </button>
+      </div>
+    </igx-dialog>
+  </button>
+</div>
+
+<!-- Tooltips -->
+<p class="text-xs mt-2" #tooltipDeckRef="tooltip" igxTooltip>Abrir baralho</p>
+<p class="text-xs mt-2" #tooltipEditRef="tooltip" igxTooltip>Editar baralho</p>
+<p class="text-xs mt-2" #tooltipDeleteRef="tooltip" igxTooltip>
+  Excluir baralho
+</p>

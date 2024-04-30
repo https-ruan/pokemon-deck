@@ -1,0 +1,58 @@
+<div class="flex flex-col items-center gap-6 m-auto">
+  <div class="text-center">
+    <img
+      class="w-full max-w-80"
+      src="assets/pokemon-logo.svg"
+      alt="Pokemon logo"
+    />
+    <strong class="text-white text-4xl italic">DECK</strong>
+  </div>
+
+  <div class="flex flex-wrap justify-center gap-4">
+    <ng-container
+      [ngTemplateOutlet]="button"
+      [ngTemplateOutletContext]="{
+        icon: 'style',
+        text: 'Meus baralhos',
+        routerLink: 'list',
+        disabled: !decksService.decks.length
+      }"
+    ></ng-container>
+    <ng-container
+      [ngTemplateOutlet]="button"
+      [ngTemplateOutletContext]="{
+        icon: 'add',
+        text: 'Criar baralho',
+        routerLink: 'create'
+      }"
+    ></ng-container>
+  </div>
+</div>
+
+<ng-template
+  #button
+  let-text="text"
+  let-routerLink="routerLink"
+  let-icon="icon"
+  let-disabled="disabled"
+>
+  <button
+    class="bg-yellow-400 rounded font-medium shadow-lg"
+    igxButton="contained"
+    igxRipple
+    [routerLink]="'/' + routerLink"
+    [disabled]="disabled"
+    [ngClass]="{
+      'opacity-50 pointer-events-auto cursor-no-drop': disabled
+    }"
+    [igxTooltipTarget]="tooltipRef"
+    [showDelay]="100"
+    [hideDelay]="100"
+  >
+    <p class="text-xs mt-2" #tooltipRef="tooltip" igxTooltip>
+      {{ disabled ? "Você não possui baralhos no momento!" : "Visitar página" }}
+    </p>
+    <igx-icon>{{ icon }}</igx-icon>
+    {{ text }}
+  </button>
+</ng-template>

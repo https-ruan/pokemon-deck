@@ -1,0 +1,15 @@
+<button
+  class="flex border-2 border-yellow-400 hover:border-yellow-100 focus:border-yellow-100 min-w-0 animate-bounce"
+  igxButton="outlined"
+  igxRipple
+  routerLink="/"
+  [igxTooltipTarget]="tooltipRef"
+  [showDelay]="100"
+  [hideDelay]="100"
+>
+  <igx-icon class="text-yellow-400">home</igx-icon>
+</button>
+
+<p class="text-xs mt-2" #tooltipRef="tooltip" igxTooltip>
+  Voltar a página inicial
+</p>

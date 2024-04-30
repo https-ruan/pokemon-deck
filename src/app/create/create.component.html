@@ -1,0 +1,120 @@
+<app-title
+  title="Criar baralho"
+  description="Selecione suas cartas favoritas, dê um nome ao seu baralho e colecione essa
+experiência incrível!"
+/>
+
+<form [formGroup]="deckForm" (ngSubmit)="saveDeck()">
+  <div class="mb-4 flex gap-2 justify-between flex-wrap md:flex-nowrap">
+    <igx-input-group
+      class="bg-blue-950 bg-opacity-50 rounded-ss-md rounded-se-md flex-grow basis-3/5"
+    >
+      <input igxInput name="name" type="text" formControlName="name" required />
+      <label class="text-white" igxLabel for="name">Nome do baralho</label>
+    </igx-input-group>
+
+    <igx-select
+      class="bg-blue-950 bg-opacity-50 rounded-ss-md rounded-se-md flex-grow"
+      formControlName="pageSelected"
+    >
+      <label class="text-white" igxLabel>Página de cartas</label>
+      <igx-select-item
+        *ngFor="let page of pages"
+        class="transition-colors hover:bg-gray-200"
+        [value]="page"
+      >
+        {{ page }}
+      </igx-select-item>
+    </igx-select>
+
+    <button
+      type="submit"
+      class="text-yellow-400 bg-blue-950 bg-opacity-50 rounded border-2 border-solid flex-grow"
+      [ngClass]="{
+        'cursor-no-drop opacity-50 bg-gray-400 pointer-events-auto border-transparent':
+          deckForm.invalid,
+        'border-yellow-400': deckForm.valid
+      }"
+      [disabled]="deckForm.invalid"
+      igxButton="contained"
+      igxRipple
+    >
+      Salvar
+    </button>
+  </div>
+
+  <div class="mb-4 p-4 text-white border-2 border-white border-dashed">
+    <span class="text-yellow-400 font-semibold">Requisitos:</span>
+
+    <ul class="list-none inline">
+      <ng-template
+        #rule
+        let-before="before"
+        let-after="after"
+        let-value="value"
+      >
+        <li class="inline">
+          {{ before }} <span class="text-yellow-400">{{ value }}</span>
+          {{ after }};
+        </li>
+      </ng-template>
+
+      <ng-container
+        [ngTemplateOutlet]="rule"
+        [ngTemplateOutletContext]="{
+        before: 'Mínimo',
+        value: deckRules.minCards,
+        after: 'cartas',
+      }"
+      ></ng-container>
+      <ng-container
+        [ngTemplateOutlet]="rule"
+        [ngTemplateOutletContext]="{
+        before: 'Máximo',
+        value: deckRules.maxCards,
+        after: 'cartas',
+      }"
+      ></ng-container>
+      <ng-container
+        [ngTemplateOutlet]="rule"
+        [ngTemplateOutletContext]="{
+        before: 'Até',
+        value: deckRules.cardsWithSameName,
+        after: 'cartas com o mesmo nome',
+      }"
+      ></ng-container>
+    </ul>
+  </div>
+
+  <div
+    class="py-4 flex gap-4 flex-wrap justify-center h-full max-h-[684px] lg:max-h-screen overflow-y-auto"
+  >
+    <div
+      *ngFor="let card of cards"
+      class="flex relative transition-all duration-300 hover:scale-105 border-4 rounded-2xl"
+      [ngClass]="{
+        'border-transparent': !checkboxRef.checked,
+        'border-green-400': checkboxRef.checked
+      }"
+    >
+      <input
+        class="absolute w-full h-full opacity-0 cursor-pointer z-10"
+        type="checkbox"
+        name="cards"
+        id="cards"
+        (click)="toggleCard($any($event.target), card)"
+        [checked]="cardIsSelected(card)"
+        #checkboxRef
+      />
+
+      <img
+        class="max-w-64 transition-opacity duration-300 rounded-xl"
+        [ngClass]="{
+          'opacity-100': checkboxRef.checked,
+          'opacity-50': !checkboxRef.checked
+        }"
+        [src]="card.image"
+      />
+    </div>
+  </div>
+</form>

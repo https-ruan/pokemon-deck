@@ -1,0 +1,13 @@
+<ng-container *ngIf="loading$ | async as loadingState">
+  <div
+    *ngIf="loadingState.loading"
+    class="fixed z-50 w-full h-full bg-black bg-opacity-50 left-0 top-0 flex flex-col gap-4 items-center justify-center backdrop-blur-sm"
+  >
+    <img
+      class="max-w-32 animate-spin"
+      src="assets/pokeball.svg"
+      alt="Pokeball"
+    />
+    <strong class="text-yellow-400 text-xl">{{ loadingState.message }}</strong>
+  </div>
+</ng-container>
