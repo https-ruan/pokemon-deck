@@ -1,4 +1,5 @@
 # Pokemon Deck
+> Disponível [**AQUI**](https-ruan.github.io/pokemon-deck/)
 
 Este projeto é um CRUD para criação de baralhos de Pokémon, utilizando a API PokemonTCG. Ele permite aos usuários criar, visualizar, atualizar e excluir baralhos de Pokémon, além de gerenciar as cartas em cada baralho.
 
