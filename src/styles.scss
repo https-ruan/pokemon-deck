@@ -1,19 +1,56 @@
+@use "igniteui-angular/theming" as *;
+@use "sass:map";
 
-// @use "igniteui-angular/theming" as *;
-// // Uncomment the following lines if you want to add a custom palette:
-// // $primary: #731963 !default;
-// // $secondary: #ce5712 !default;
-// // $app-palette: palette($primary, $secondary, $surface);
+$include: (
+  igx-ripple,
+  igx-icon,
+  igx-button,
+  igx-input-group,
+  igx-drop-down,
+  igx-select,
+  igx-dialog,
+  igx-tooltip,
+  igx-toast,
+  igx-overlay,
+  igx-checkbox
+);
 
-// /* autoprefixer grid: on */
+@include core();
+@include theme(
+  $palette: $default-palette,
+  $schema: $dark-material-schema,
+  $exclude: map.keys(map.remove($components, $include...))
+);
 
-// @include core();
-// @include typography($font-family: $material-typeface, $type-scale: $material-type-scale);
-// @include theme($default-palette);
-// // CSS Reset, comment out if not required or using a different module
-// @import 'minireset.css/minireset';
+$custom-input-group: input-group-theme(
+  $filled-text-color: #ffffff,
+  $focused-text-color: #ffffff,
+  $idle-text-color: #ffffff,
+  $idle-bottom-line-color: #ffffff,
+  $interim-bottom-line-color: #ffffff,
+  $hover-bottom-line-color: #ffffff,
+  $focused-secondary-color: #facc15,
+);
+$custom-drop-down-group: drop-down-theme(
+  $selected-item-background: #e5e7eb,
+  $selected-hover-item-background: #e5e7eb,
+  $selected-focus-item-background: #e5e7eb,
+);
+$custom-dialog-theme: dialog-theme(
+  $background: #172554,
+);
+@include css-vars($custom-input-group);
+@include css-vars($custom-drop-down-group);
+@include css-vars($custom-dialog-theme);
 
 /* You can add global styles to this file, and also import other style files */
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+// Correção para o dialog da tela de lista de baralhos
+.igx-dialog__window {
+  max-width: 80%;
+  max-height: 80%;
+  margin: auto;
+}
