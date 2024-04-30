@@ -36,9 +36,9 @@ Todos os baralhos criados estão sendo salvos no local storage da máquina.
 ┃ ┃ ┃ ┣ 📂 validators
 ┃ ┃ ┃   ┗ 📜 [arquivos de funções de validação]
 ┃ ┃ ┣ 📂 guards
-┃ ┃ ┃   ┗ 📜 [arquivos de guards]
+┃ ┃ ┃ ┗ 📜 [arquivos de guards]
 ┃ ┃ ┣ 📂 interfaces
-┃ ┃ ┃  ┗ 📜 [arquivos de interfaces compartilhadas]
+┃ ┃ ┃ ┗ 📜 [arquivos de interfaces compartilhadas]
 ┃ ┃ ┗ 📂 services
 ┃ ┃   ┗ 📜 [arquivos de serviços compartilhados]
 ┃ ┣ 📂 create
