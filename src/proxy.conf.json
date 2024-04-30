@@ -1,0 +1,10 @@
+{
+  "/pokemonAPI": {
+    "target": "https://api.pokemontcg.io/v2",
+    "secure": false,
+    "pathRewrite": {
+      "^/pokemonAPI": ""
+    },
+    "changeOrigin": true
+  }
+}
