@@ -18,9 +18,9 @@ Todos os baralhos criados estão sendo salvos no local storage da máquina.
 ┣ 📂 app
 ┃ ┣ 📂 @core
 ┃ ┃ ┣ 📂 constants
-┃ ┃ ┃ ┗ 📜 [arquivos de constantes]
+┃ ┃ ┃ ┗ 📜 [arquivos de constantes principais para o projeto, como `deck-rules.ts`]
 ┃ ┃ ┗ 📂 interfaces
-┃ ┃   ┗ 📜 [arquivos de interfaces]
+┃ ┃   ┗ 📜 [arquivos de interfaces principais para o projeto, como `environment.interface.ts`]
 ┃ ┣ 📂 @shared
 ┃ ┃ ┣ 📂 components
 ┃ ┃ ┃ ┣ 📂 go-to-home
@@ -32,24 +32,24 @@ Todos os baralhos criados estão sendo salvos no local storage da máquina.
 ┃ ┃ ┃ ┗ 📂 toast
 ┃ ┃ ┃   ┗ 📜 [componente para exibição de toast]
 ┃ ┃ ┣ 📂 enums
-┃ ┃ ┃ ┗ 📜 [arquivos de enums]
+┃ ┃ ┃ ┗ 📜 [enumeradores compartilhados, como `super-type.enum.ts`]
 ┃ ┃ ┣ 📂 functions
 ┃ ┃ ┃ ┣ 📂 validators
-┃ ┃ ┃   ┗ 📜 [arquivos de funções de validação]
+┃ ┃ ┃   ┗ 📜 [arquivos de funções de validação, como uma validação personalizada para um reactive form]
 ┃ ┃ ┣ 📂 guards
-┃ ┃ ┃ ┗ 📜 [arquivos de guards]
+┃ ┃ ┃ ┗ 📜 [guardas de rotas, que validam a entrada do usuário em determinada rota.]
 ┃ ┃ ┣ 📂 interfaces
-┃ ┃ ┃ ┗ 📜 [arquivos de interfaces compartilhadas]
+┃ ┃ ┃ ┗ 📜 [interfaces compartilhadas]
 ┃ ┃ ┗ 📂 services
-┃ ┃   ┗ 📜 [arquivos de serviços compartilhados]
+┃ ┃   ┗ 📜 [serviços compartilhados]
 ┃ ┣ 📂 create
-┃ ┃ ┗ 📜 [arquivos relacionados à criação de baralhos]
+┃ ┃ ┗ 📜 [componente da tela de criação de baralhos]
 ┃ ┣ 📂 home
-┃ ┃ ┗ 📜 [arquivos relacionados à página inicial]
+┃ ┃ ┗ 📜 [componente da tela de inicial]
 ┃ ┣ 📂 list
-┃ ┃ ┗ 📜 [arquivos relacionados à lista de baralhos]
+┃ ┃ ┗ 📜 [componente da tela de listagem de baralhos]
 ┣ 📂 assets
-┃ ┗ 📜 [arquivos de assets]
+┃ ┗ 📜 [ativos do projeto, como imagens]
 ┣ 📂 environments
 ┃ ┗ 📜 [arquivos de configuração de ambiente]
 </pre>
