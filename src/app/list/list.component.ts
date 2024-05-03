@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { Router, RouterLink, RouterModule } from '@angular/router';
 import { TitleComponent } from '@shared/components/title/title.component';
 import { DecksService } from '@shared/services/decks.service';
 import { ToastService } from '@shared/services/toast.service';
@@ -17,7 +17,7 @@ import {
   standalone: true,
   imports: [
     CommonModule,
-    RouterLink,
+    RouterModule,
     TitleComponent,
     IgxIconModule,
     IgxTooltipModule,
